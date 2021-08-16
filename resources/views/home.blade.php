@@ -30,7 +30,7 @@
                             <a href=""><button type="button" class="btn btn-secondary search-btn">検<span class="btn-inner"></span>索</button></a>
                         </th>
                         <th>
-                            <a href=""><button type="button" class="btn btn-secondary search-btn">新規作成</button></a>
+                            <a href="/create"><button type="button" class="btn btn-secondary search-btn">新規作成</button></a>
                         </th>
                     </tr>
                     <th>1</th>

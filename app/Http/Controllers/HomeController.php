@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Company;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -29,6 +31,29 @@ class HomeController extends Controller
     public function create()
     {
         return view('create');
+    }
+    
+    public function store(Request $request)
+    {
+        $data = $request->all();
+        // dd($data);
+        // POSTされたデータをDB（memosテーブル）に挿入
+        // MEMOモデルにDBへ保存する命令を出す
+        // $company_id = Company::insertGetId([
+        //     'company_name' =>  $data['company_name'], 'street_address' => $data['street_address']
+        // ]);
+
+        // ひとまずcompany_idを入れてデータベースへの反映まで実施
+        $product_id = Product::insertGetId([
+          'product_name' => $data['product_name'],'company_id' => $data['company_id'], 'price' => $data['price'], 'stock' => $data['stock'], 'comment' => $data['comment']
+        ]);
+       
+
+        // $company_id = Company::insertGetId([
+        //     'company_name' => $data['company_name']
+        // ]);
+
+        return redirect()->route('home');
     }
 
 }
