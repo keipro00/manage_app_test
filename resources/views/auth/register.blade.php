@@ -66,6 +66,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('登録') }}
                                 </button>
+                                <a href="/"> <div class="btn btn-primary">戻る</div>  </a>
                             </div>
                         </div>
                     </form>
