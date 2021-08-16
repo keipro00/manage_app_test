@@ -25,7 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // 登録商品のデータを取得
+        $products = Product::get();
+        // dd($products);
+        return view('home' ,compact('products'));
     }
     
     public function create()
