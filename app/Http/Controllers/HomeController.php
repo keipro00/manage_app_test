@@ -25,9 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // 登録商品のデータを取得
         $products = Product::get();
-        // dd($products);
         return view('home' ,compact('products'));
     }
     
@@ -38,6 +36,7 @@ class HomeController extends Controller
     
     public function store(Request $request)
     {
+        // 商品登録データを取得
         $data = $request->all();
         // dd($data);
         // POSTされたデータをDB（memosテーブル）に挿入
@@ -51,11 +50,6 @@ class HomeController extends Controller
           'product_name' => $data['product_name'],'company_id' => $data['company_id'], 'price' => $data['price'], 'stock' => $data['stock'], 'comment' => $data['comment']
         ]);
        
-
-        // $company_id = Company::insertGetId([
-        //     'company_name' => $data['company_name']
-        // ]);
-
         return redirect()->route('home');
     }
 
