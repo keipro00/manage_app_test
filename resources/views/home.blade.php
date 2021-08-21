@@ -14,6 +14,7 @@
                         </div>
                     @endif
                     <table class="table">
+                
                         <tr>
                             <th>商品番号</th>
                             <th>商品画像</th>
@@ -23,8 +24,13 @@
                             <th>メーカー名<br>
                             <select name="" id="" class="maker-search">
                                 <option value="" >検索</option>
-                                <option value="">maker</option>
-                            </select>
+                                @foreach($companies AS $company)
+                                <option value="">                                    
+                                {{ $companies[$company -> company_name] = $company -> company_name }}
+                            </option>
+                            @endforeach
+                        </select>
+            
                             </th>
                             <th>
                                 <a href=""><button type="button" class="btn btn-secondary search-btn">検<span class="btn-inner"></span>索</button></a>
@@ -33,9 +39,10 @@
                                 <a href="/create"><button type="button" class="btn btn-secondary search-btn">新規作成</button></a>
                             </th>
                         </tr>
+            
                         @foreach($products AS $product)
                         <tr>
-                             <th>1</th>
+                             <th>{{ $product['id'] }}</th>
                             <th>画像</th>
                             <th>
                                 <p>{{ $product['product_name'] }}</p>           
