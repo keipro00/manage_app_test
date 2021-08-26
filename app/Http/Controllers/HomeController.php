@@ -27,13 +27,15 @@ class HomeController extends Controller
     {
         $products = Product::get();
         $companies = Company::get();
-
+        
         return view('home' ,compact('products','companies'));
     }
     
     public function create()
     {
-        return view('create');
+        $products = Product::get();
+        $companies = Company::get();
+        return view('create',compact('products','companies'));
     }
     
     public function store(Request $request)

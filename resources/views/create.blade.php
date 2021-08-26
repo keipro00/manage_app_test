@@ -30,7 +30,15 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('メーカー名') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="company_id" value="" required autocomplete="name" autofocus>
+                                <!-- セレクトボックスはエラーが発生・・・ -->
+                            <select name="company_id" id="name" class="form-control @error('name') is-invalid @enderror">
+                                <option value="" >検索</option>
+                                @foreach($companies AS $company)
+                                <option value="">{{ $company['company_name']}}</option>
+                                  @endforeach
+                             </select>
+
+                                <!-- <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="company_id" value="" required autocomplete="name" autofocus> -->
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">

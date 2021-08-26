@@ -25,11 +25,11 @@
                             <select name="" id="" class="maker-search">
                                 <option value="" >検索</option>
                                 @foreach($companies AS $company)
-                                <option value="">                                    
-                                {{ $companies[$company -> company_name] = $company -> company_name }}
-                            </option>
-                            @endforeach
-                        </select>
+                                <option value="">
+                                    {{ $company['company_name']}} 
+                             </option>
+                                  @endforeach
+                             </select>
             
                             </th>
                             <th>
@@ -41,8 +41,9 @@
                         </tr>
             
                         @foreach($products AS $product)
+                    
                         <tr>
-                             <th>{{ $product['id'] }}</th>
+                            <th>{{ $product['id'] }}</th>
                             <th>画像</th>
                             <th>
                                 <p>{{ $product['product_name'] }}</p>           
@@ -53,11 +54,16 @@
                             <th>
                                 <p>{{ $product['stock'] }}</p>           
                             </th>
-                            <th>新扉</th>
+                        
+                            
+                            <th>{{ $company['company_name'] }}</th>
+                            
+                        
                             <th>  <a href=""><button type="button" class="btn btn-secondary search-btn">詳細表示</button></a></th>
                             <th>  <a href=""><button type="button" class="btn btn-secondary search-btn">削<span class="btn-inner">除</button></a></th>
                         </tr>
                         @endforeach
+
                     </table>
                 </div>
             </div>
